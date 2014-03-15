@@ -19648,7 +19648,7 @@ type RDH, grid 15 mm</description>
 <part name="GND4" library="supply2" deviceset="GND" device=""/>
 <part name="X1" library="con-subd" deviceset="F09" device="H"/>
 <part name="GND5" library="supply2" deviceset="GND" device=""/>
-<part name="IC3" library="linear" deviceset="78*" device="TV" technology="8"/>
+<part name="LM1117" library="linear" deviceset="78*" device="TV" technology="8"/>
 <part name="GND6" library="supply2" deviceset="GND" device=""/>
 <part name="VCC4" library="supply1" deviceset="VCC" device=""/>
 <part name="P+1" library="supply1" deviceset="+12V" device=""/>
@@ -19657,7 +19657,7 @@ type RDH, grid 15 mm</description>
 <part name="GND7" library="supply2" deviceset="GND" device=""/>
 <part name="GND8" library="supply2" deviceset="GND" device=""/>
 <part name="VCC7" library="supply1" deviceset="VCC" device=""/>
-<part name="C5" library="rcl" deviceset="CPOL-EU" device="E2-4" value="500uF"/>
+<part name="C5" library="rcl" deviceset="CPOL-EU" device="E2-4" value="10uF"/>
 <part name="C6" library="rcl" deviceset="C-EU" device="025-030X050"/>
 <part name="P+2" library="supply1" deviceset="+12V" device=""/>
 <part name="IC6" library="ic-package" deviceset="DIL40" device=""/>
@@ -19680,11 +19680,11 @@ type RDH, grid 15 mm</description>
 <part name="GND13" library="supply2" deviceset="GND" device=""/>
 <part name="X2" library="con-subd" deviceset="F09" device="H"/>
 <part name="GND14" library="supply2" deviceset="GND" device=""/>
-<part name="IC4" library="linear" deviceset="78*" device="TV" technology="8"/>
+<part name="LM117" library="linear" deviceset="78*" device="TV" technology="8"/>
 <part name="GND15" library="supply2" deviceset="GND" device=""/>
 <part name="VCC12" library="supply1" deviceset="VCC" device=""/>
 <part name="P+3" library="supply1" deviceset="+12V" device=""/>
-<part name="C11" library="rcl" deviceset="CPOL-EU" device="E2-4" value="500uF"/>
+<part name="C11" library="rcl" deviceset="CPOL-EU" device="E2-4" value="10uF"/>
 <part name="P+5" library="supply1" deviceset="+12V" device=""/>
 <part name="GND17" library="supply2" deviceset="GND" device=""/>
 <part name="R4" library="resistor" deviceset="R-EU_" device="0204/7" value="1K"/>
@@ -19709,6 +19709,8 @@ type RDH, grid 15 mm</description>
 <part name="JP1" library="pinhead" deviceset="PINHD-1X9" device=""/>
 <part name="JP2" library="pinhead" deviceset="PINHD-1X3" device=""/>
 <part name="JP3" library="pinhead" deviceset="PINHD-1X2" device=""/>
+<part name="C13" library="rcl" deviceset="CPOL-EU" device="E2-4" value="10uF"/>
+<part name="C14" library="rcl" deviceset="CPOL-EU" device="E2-4" value="10uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -19745,7 +19747,7 @@ type RDH, grid 15 mm</description>
 <instance part="GND5" gate="GND" x="238.76" y="-40.64" smashed="yes" rot="R270">
 <attribute name="VALUE" x="235.585" y="-38.735" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="IC3" gate="A1" x="73.66" y="68.58"/>
+<instance part="LM1117" gate="A1" x="73.66" y="68.58"/>
 <instance part="GND6" gate="GND" x="73.66" y="53.34" smashed="yes">
 <attribute name="VALUE" x="71.755" y="50.165" size="1.778" layer="96"/>
 </instance>
@@ -19767,6 +19769,7 @@ type RDH, grid 15 mm</description>
 <instance part="R8" gate="1" x="121.92" y="-10.16"/>
 <instance part="R2" gate="G$1" x="-20.32" y="0"/>
 <instance part="JP1" gate="A" x="134.62" y="10.16"/>
+<instance part="C13" gate="G$1" x="60.96" y="58.42" rot="MR270"/>
 </instances>
 <busses>
 </busses>
@@ -19794,13 +19797,15 @@ type RDH, grid 15 mm</description>
 <wire x1="246.38" y1="-40.64" x2="241.3" y2="-40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC3" gate="A1" pin="GND"/>
+<pinref part="LM1117" gate="A1" pin="GND"/>
 <pinref part="GND6" gate="GND" pin="GND"/>
 <wire x1="73.66" y1="55.88" x2="73.66" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="-"/>
 <wire x1="73.66" y1="58.42" x2="73.66" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="58.42" x2="73.66" y2="58.42" width="0.1524" layer="91"/>
 <junction x="73.66" y="58.42"/>
+<pinref part="C13" gate="G$1" pin="-"/>
+<wire x1="66.04" y1="58.42" x2="73.66" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="PROGGER" gate="1" pin="1"/>
@@ -19848,7 +19853,7 @@ type RDH, grid 15 mm</description>
 <wire x1="223.52" y1="-17.78" x2="218.44" y2="-17.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC3" gate="A1" pin="VO"/>
+<pinref part="LM1117" gate="A1" pin="VO"/>
 <pinref part="VCC4" gate="VCC" pin="VCC"/>
 <wire x1="99.06" y1="68.58" x2="91.44" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="+"/>
@@ -19953,9 +19958,13 @@ type RDH, grid 15 mm</description>
 </net>
 <net name="+12V" class="0">
 <segment>
-<pinref part="IC3" gate="A1" pin="VI"/>
+<pinref part="LM1117" gate="A1" pin="VI"/>
 <pinref part="P+1" gate="1" pin="+12V"/>
-<wire x1="53.34" y1="68.58" x2="63.5" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="68.58" x2="58.42" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="C13" gate="G$1" pin="+"/>
+<wire x1="58.42" y1="68.58" x2="63.5" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="58.42" x2="58.42" y2="68.58" width="0.1524" layer="91"/>
+<junction x="58.42" y="68.58"/>
 </segment>
 <segment>
 <pinref part="P+2" gate="1" pin="+12V"/>
@@ -20101,7 +20110,7 @@ type RDH, grid 15 mm</description>
 <instance part="GND14" gate="GND" x="226.06" y="12.7" smashed="yes" rot="R270">
 <attribute name="VALUE" x="222.885" y="14.605" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="IC4" gate="A1" x="73.66" y="68.58"/>
+<instance part="LM117" gate="A1" x="73.66" y="68.58"/>
 <instance part="GND15" gate="GND" x="73.66" y="53.34" smashed="yes">
 <attribute name="VALUE" x="71.755" y="50.165" size="1.778" layer="96"/>
 </instance>
@@ -20135,6 +20144,7 @@ type RDH, grid 15 mm</description>
 </instance>
 <instance part="JP2" gate="A" x="157.48" y="50.8"/>
 <instance part="JP3" gate="G$1" x="81.28" y="38.1"/>
+<instance part="C14" gate="G$1" x="60.96" y="58.42" rot="MR270"/>
 </instances>
 <busses>
 </busses>
@@ -20167,13 +20177,15 @@ type RDH, grid 15 mm</description>
 <wire x1="251.46" y1="22.86" x2="231.14" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC4" gate="A1" pin="GND"/>
+<pinref part="LM117" gate="A1" pin="GND"/>
 <pinref part="GND15" gate="GND" pin="GND"/>
 <wire x1="73.66" y1="55.88" x2="73.66" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="C11" gate="G$1" pin="-"/>
 <wire x1="73.66" y1="58.42" x2="73.66" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="58.42" x2="73.66" y2="58.42" width="0.1524" layer="91"/>
 <junction x="73.66" y="58.42"/>
+<pinref part="C14" gate="G$1" pin="-"/>
+<wire x1="66.04" y1="58.42" x2="73.66" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="PROGGER1" gate="1" pin="1"/>
@@ -20243,7 +20255,7 @@ type RDH, grid 15 mm</description>
 <wire x1="213.36" y1="27.94" x2="210.82" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="IC4" gate="A1" pin="VO"/>
+<pinref part="LM117" gate="A1" pin="VO"/>
 <pinref part="VCC12" gate="VCC" pin="VCC"/>
 <wire x1="99.06" y1="68.58" x2="91.44" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="C11" gate="G$1" pin="+"/>
@@ -20339,9 +20351,13 @@ type RDH, grid 15 mm</description>
 </net>
 <net name="+12V" class="0">
 <segment>
-<pinref part="IC4" gate="A1" pin="VI"/>
+<pinref part="LM117" gate="A1" pin="VI"/>
 <pinref part="P+3" gate="1" pin="+12V"/>
-<wire x1="53.34" y1="68.58" x2="63.5" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="68.58" x2="58.42" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="C14" gate="G$1" pin="+"/>
+<wire x1="58.42" y1="68.58" x2="63.5" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="58.42" x2="58.42" y2="68.58" width="0.1524" layer="91"/>
+<junction x="58.42" y="68.58"/>
 </segment>
 <segment>
 <pinref part="R6" gate="G$1" pin="1"/>
